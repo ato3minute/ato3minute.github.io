@@ -1,0 +1,18 @@
+.policy-page{min-height:100svh;background:radial-gradient(ellipse at 75% 8%,#30384088,transparent 50%),radial-gradient(ellipse at 16% 65%,#222d3866,transparent 60%),var(--ink)}
+.policy-page .site-header{position:relative}
+.policy-content{width:min(100%,780px);margin:auto;padding:64px 28px 24px;overflow-wrap:anywhere}
+.policy-heading{padding-bottom:40px}
+.policy-heading .eyebrow{margin-bottom:22px}
+.policy-heading h1{font-size:clamp(27px,5vw,38px);line-height:1.6;letter-spacing:.06em;margin:0}
+.policy-lead,.policy-section p{font-size:14px;line-height:2.2;letter-spacing:.035em;color:#b5bac1}
+.policy-lead{margin:24px 0 0}
+.policy-date{font-size:11px;line-height:1.9;color:var(--muted);margin:22px 0 0}
+.policy-section{padding:30px 0;border-top:1px solid #b0b4b422}
+.policy-section h2{font-size:22px;margin:0 0 16px}
+.policy-section p{margin:12px 0 0}
+.policy-section a{color:#ded1b6;text-decoration:underline;text-underline-offset:5px}
+.policy-page footer{padding-top:56px}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 24px;margin-top:24px}
+.footer-links a{display:inline-flex;align-items:center;min-height:44px;padding:12px 4px;font-size:12px;line-height:20px;letter-spacing:.06em;color:#a5a9af}
+.footer-links a:hover,.footer-links a[aria-current="page"]{color:#ded1b6}
+@media(max-width:600px){.policy-content{padding:40px 24px 12px}.policy-heading{padding-bottom:32px}.policy-heading h1{font-size:27px}.policy-heading .eyebrow{font-size:10px}.policy-section{padding:24px 0}.policy-section h2{font-size:20px}.policy-lead,.policy-section p{font-size:13px}.footer-links{gap:4px 16px}}

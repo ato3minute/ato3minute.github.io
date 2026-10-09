@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080b10">
+  <title>左ききのエレン — あと3分だけ。</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="ellen.js" defer></script>
+</head>
+<body class="work-page">
+  <main class="work-world">
+    <a class="world-brand" href="index.html">あと3分だけ。</a>
+    <header class="work-header">
+      <p class="world-eyebrow">世界の続きを選ぶ</p>
+      <h1>左ききのエレン</h1>
+      <p class="work-question">才能とは何か。<br>何者かになるとは何か。</p>
+    </header>
+    <section class="reading-paths" aria-label="この世界への入り口">
+      <button class="reading-primary" type="button" data-reading="1巻">まず、1巻だけ覗いてみる</button>
+      <div class="reading-secondary">
+        <button type="button" data-reading="1〜3巻">1〜3巻で読んでみる</button>
+        <button type="button" data-reading="全巻">全巻まとめて読む</button>
+      </div>
+      <p id="reading-response" class="path-response" role="status"></p>
+    </section>
+    <footer class="another-world">
+      <a id="another-world" class="next-world" href="../index.html#worlds"><span>……もう3分だけ？</span><span class="next-world-label">次の世界を覗く →</span></a>
+    </footer>
+  </main>
+</body>
+</html>

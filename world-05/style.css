@@ -1,0 +1,133 @@
+:root{color-scheme:dark;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#eee9df;background:#000;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0}button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}button:focus-visible{outline:2px solid #eadbb6;outline-offset:5px}button:disabled{cursor:wait;opacity:.5}[hidden]{display:none!important}
+#welcome{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 24px;background:radial-gradient(ellipse at 50% 25%,#293746 0%,transparent 65%),#111923}
+.moon{height:32px;width:32px;border-radius:50%;background:#d9d3bb;box-shadow:0 0 55px #e4d2a321;margin-bottom:36px}.eyebrow{font-size:10px;letter-spacing:.25em;color:#aab0b4;margin:0 0 17px}h1{font:400 clamp(30px,8vw,46px)/1.6 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.14em;margin:0}.intro{font:15px/2.2 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.14em;color:#c7c9ca;margin:25px 0 36px}.choices{display:grid;gap:12px;width:min(280px,100%)}.choices button{border:1px solid #707c85;border-radius:3px;background:#ffffff08;padding:17px 22px;letter-spacing:.15em;font-size:13px}.choices button:first-child{background:#e4ded0;color:#26313b;border-color:#e4ded0}.choices span{float:right}.hint{font-size:10px;color:#a1aab3;letter-spacing:.07em;margin-top:24px}#loading{min-height:14px;margin:6px 0 0}
+#player{height:100vh;height:100svh;position:relative;overflow:hidden;background:#101720;isolation:isolate}.scene{position:absolute;inset:0;opacity:0;pointer-events:none;overflow:hidden}.scene img{width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block;will-change:transform}.scene::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#09101733,transparent 30%,#09101733 55%,#091017aa)}.scene.closing::after{background:#101720b8}.caption{position:absolute;z-index:1;left:24px;right:24px;top:64%;margin:0;text-align:center;white-space:pre-line;font:400 clamp(18px,4.7vw,28px)/2 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.12em;text-shadow:0 2px 20px #0008}.closing .caption{top:42%}.title .caption{font-size:clamp(28px,7vw,44px);letter-spacing:.2em}.brand{position:absolute;top:calc(25px + env(safe-area-inset-top));left:24px;font:12px "Yu Mincho",serif;letter-spacing:.13em;opacity:.7;pointer-events:none}#next{position:absolute;inset:0;width:100%;height:100%;background:none;border:0;z-index:2}#next:focus-visible{outline-offset:-8px}.controls{position:absolute;bottom:0;left:0;right:0;z-index:4;padding:22px max(20px,env(safe-area-inset-right)) calc(15px + env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left));background:linear-gradient(transparent,#0b111cc9)}.progress{height:2px;background:#ffffff30;margin-bottom:10px}#progress-fill{height:100%;width:0;background:#ddd5bf}.control-row{display:flex;align-items:center;gap:10px}.control-row button{background:none;border:0;padding:10px 4px;min-height:44px;font-size:11px;white-space:nowrap}.control-row #time{font-size:10px;color:#c0c3c6;font-variant-numeric:tabular-nums;margin-right:auto}.control-row #toggle{min-width:64px}#ending{position:absolute;inset:0;display:grid;place-items:center;z-index:3;pointer-events:none}#again{pointer-events:auto;border:0;border-bottom:1px solid #c7bd9e80;background:none;padding:20px 8px;font:clamp(21px,5.5vw,32px) "Yu Mincho",serif;letter-spacing:.12em}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(min-width:800px){.scene img{object-position:center 48%}.caption{top:66%}.controls{padding-left:40px;padding-right:40px}.brand{left:40px}}
+@media(prefers-reduced-motion:reduce){.scene img{will-change:auto}}
+/* Second screening: portrait film frame and fully black closing cards. */
+body{background:#080b10}#player{max-width:560px;margin-inline:auto;background:#080b10}#scenes{position:absolute;inset:0;z-index:0}.scene img{object-position:center center}.scene::after{background:linear-gradient(180deg,#080b1010,transparent 30%,transparent 55%,#080b1070)}.scene.closing{background:#080b10}.scene.closing::after{background:none}.caption{left:18px;right:18px;top:auto;bottom:22%;font-size:clamp(15px,4.1vw,21px);line-height:2;letter-spacing:.06em}.closing .caption{top:0;bottom:0;display:grid;place-items:center;font-size:clamp(14px,3.8vw,21px)}.title .caption{font-size:clamp(26px,7vw,38px);letter-spacing:.18em}.brand{z-index:1;font-size:10px;opacity:.45;transition:opacity .6s}.at-closing .brand{opacity:0}.controls{padding-top:28px}.at-closing .controls{background:none}#again{font-size:clamp(20px,5.2vw,28px)}@media(min-width:800px){.caption{top:auto}.closing .caption{top:0}.controls{padding-left:24px;padding-right:24px}.brand{left:24px}}
+/* Third screening: a quiet introduction after the unchanged film. */
+#introduction{position:absolute;inset:0;z-index:3;background:#080b10;opacity:0;display:grid;place-items:center;padding:64px 22px 120px;text-align:center;pointer-events:none}
+#introduction .intro-line{margin:0;font:400 clamp(14px,3.8vw,20px)/2.4 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.03em;color:#e3ded4}
+#intro-work{width:100%;max-width:390px}#intro-work h2{margin:0;font:400 clamp(27px,7.2vw,38px)/1.8 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.14em}#intro-question{margin:30px 0 0;font:400 clamp(14px,3.7vw,18px)/2.2 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.07em;color:#bab7b1}
+#work-cta{display:inline-block;pointer-events:auto;margin-top:48px;padding:16px 4px;color:#e9e1cf;text-decoration:none;border-bottom:1px solid #d8cbae80;font-size:14px;letter-spacing:.06em;min-height:48px}a:focus-visible{outline:2px solid #eadbb6;outline-offset:5px}.at-introduction .brand{opacity:0}.at-introduction .progress,.at-introduction #time{visibility:hidden}.at-introduction .controls{background:none}.at-introduction .control-row{justify-content:space-between}.at-introduction .control-row button{color:#a7a6a1}
+.work-page{background:#080b10;color:#e3ded4}.work-world{width:min(100%,560px);margin-inline:auto;padding:calc(32px + env(safe-area-inset-top)) 28px calc(32px + env(safe-area-inset-bottom));min-height:100svh}.world-brand{display:inline-block;color:#8c8c89;text-decoration:none;font:11px/1.8 "Yu Mincho",serif;letter-spacing:.14em;padding:8px 0}.work-header{padding-top:64px;text-align:center}.world-eyebrow{color:#a19f99;font-size:10px;letter-spacing:.2em;margin:0 0 30px}.work-header h1{font-size:clamp(27px,7.2vw,38px);letter-spacing:.12em;line-height:1.8}.work-question{font:14px/2.2 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.07em;color:#bab7b1;margin:28px 0 0}.reading-paths{margin:58px auto 0;max-width:350px;text-align:center}.reading-primary{width:100%;min-height:62px;padding:18px 10px;border:1px solid #b8aa8e80;background:#d9cbb00a;border-radius:2px;font:15px/1.8 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.04em;color:#efe5d3}.reading-secondary{display:grid;gap:8px;margin-top:26px}.reading-secondary button{min-height:48px;padding:12px 6px;border:0;background:none;color:#aaa8a1;font:13px/1.8 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.07em}.reading-paths button[aria-pressed="true"]{color:#efe5d3;background:#d9cbb00d}.path-response{min-height:40px;margin:18px 0 0;color:#92918b;font-size:11px;line-height:1.9;text-align:center}.another-world{margin:42px auto 0;padding-top:30px;border-top:1px solid #ffffff0b;text-align:center}.another-world button{background:none;border:0;padding:14px 4px;color:#b9b5ac;font:17px/1.8 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.08em;min-height:48px}.another-world .path-response{margin-top:10px}@media(max-height:700px){.work-header{padding-top:36px}.reading-paths{margin-top:38px}.another-world{margin-top:24px}}@media(prefers-reduced-motion:reduce){.brand{transition:none}}
+
+/* Episode 2: moonlit arena, original identities, instant blackout at contact. */
+body{background:#000}#welcome{background:radial-gradient(ellipse at 50% 24%,#263044 0%,transparent 64%),#080b10}.moon{background:#dcddeb;box-shadow:0 0 64px #dfe9ff22}.choices button:first-child{background:#ded7c7}.hint{line-height:2.1}#player{background:#000;width:min(100%,calc(100svh * 9 / 16));max-width:560px}.scene img{object-position:center center}.scene.opening{background:#000}.scene.opening::after{background:none}.opening .caption{bottom:0;top:0;display:grid;place-items:center;padding-bottom:8%;font-size:clamp(16px,4.4vw,24px);line-height:2.5}.dialogue .caption{color:#f4e5cb}.caption{bottom:19%;text-shadow:0 2px 18px #000,0 1px 5px #000}.scene::after{background:linear-gradient(180deg,#00000008,transparent 30%,transparent 56%,#00000050)}#impact{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse at 50% 43%,#fffef2,#f7e4af 36%,#efc98300 80%);opacity:0}#introduction{background:#000;padding:60px 20px 105px}#introduction .intro-line{font-size:clamp(13px,3.6vw,20px);line-height:2.5}#intro-third{max-width:360px}#intro-work h2{font-size:clamp(23px,6.2vw,34px);letter-spacing:.07em}#work-cta{margin-top:44px;font-size:clamp(12px,3.4vw,15px)}.at-opening .brand,.at-collision .brand{opacity:0}.at-collision .controls{opacity:.35}.at-introduction .controls{background:none}.at-introduction .progress,.at-introduction #time{display:none}.at-introduction .brand{opacity:0}.work-page{background:#080b10}.work-header h1{font-size:clamp(24px,6.4vw,34px);letter-spacing:.06em}.work-question{line-height:2.3}.work-note{color:#7c7d80;font-size:10px;line-height:2;text-align:center;margin:36px 0 0}.work-world{max-width:560px}.world-eyebrow{color:#b3a586}.at-opening .controls{background:none}@media(max-height:680px){.caption{bottom:20%}.opening .caption{padding-bottom:13%}.controls{padding-top:18px}#introduction{padding-bottom:95px}#work-cta{margin-top:30px}}@media(prefers-reduced-motion:reduce){#impact{display:none}}
+
+/* Episode 3: afternoon light and full-width mobile framing. */
+#welcome{background:linear-gradient(155deg,#203f4c,#142b38 55%,#574936)}
+.moon{border-radius:2px;transform:rotate(30deg);background:#d7b778;box-shadow:0 0 65px #f9c88244}
+.eyebrow{color:#d6c7aa}.intro{color:#e0ded3}.choices button:first-child{background:#ecdfc6;color:#233d47}
+#player{width:100%;max-width:560px}.scene img{object-position:center center}
+.scene::after{background:linear-gradient(180deg,#12242e15,transparent 32%,transparent 50%,#10212c66)}
+.dialogue .caption{bottom:23%;font-size:clamp(16px,4.4vw,23px);color:#fff1d6}
+.at-final .brand{opacity:.45}.at-final .controls{opacity:1}.first-move .caption{bottom:23%}
+#progress-fill{background:#e6c48b}.work-page{background:linear-gradient(155deg,#182f3b,#101a23 65%)}
+.world-eyebrow{color:#d3b984}.reading-primary{border-color:#bfa477;background:#d8c49d0d}
+@media(min-width:700px){#player{width:min(560px,calc(100svh * 9 / 16))}}
+@media(max-width:360px){.caption{font-size:14px;letter-spacing:.02em}.dialogue .caption{font-size:16px}}
+/* The childhood flash shares the adult face-off composition. */
+.scene .childhood-echo{position:absolute;inset:0;opacity:0;pointer-events:none;transform:none!important}
+.at-final .brand{opacity:0}
+#intro-second{max-width:330px;text-wrap:balance}
+/* Keep both players visible at every phone ratio, with a soft extended backdrop. */
+.scene{background-size:cover;background-position:center}
+.scene::before{content:"";position:absolute;inset:0;background:inherit;filter:blur(22px) brightness(.48);transform:scale(1.12)}
+.scene img{position:relative;object-fit:contain;object-position:center 36%}
+.scene .childhood-echo{object-position:center 36%}
+/* Episode 4: ordinary warm life, brief cool tension, ordinary life again. */
+#welcome{background:radial-gradient(ellipse at 50% 25%,#3e4237,transparent 70%),#141a18}
+.moon{border-radius:50%;transform:none;background:#d5c9a7;box-shadow:0 0 60px #ddc8a322}
+.choices button:first-child{background:#e3decd;color:#2a302a}
+.scene img{object-fit:cover;object-position:center center}
+.scene.daily::after{background:linear-gradient(180deg,#141a100a,transparent 50%,#14160f55)}
+.scene.tension::after{background:linear-gradient(180deg,#07131d22,transparent 38%,#030b1855)}
+.instant::after{background:none!important}
+.observation img{object-position:80% center;transform-origin:80% 40%}
+/* Keep both members of the recurring duo in narrow phone crops. */
+#scenes .scene:nth-child(7) img,
+#scenes .scene:nth-child(9) img,
+#scenes .scene:nth-child(10) img,
+#scenes .scene:nth-child(11) img,
+#scenes .scene:nth-child(12) img{object-position:100% center;transform-origin:100% 40%}
+.caption{bottom:22%;font-size:clamp(14px,4vw,21px);text-wrap:balance}
+.scene.daily .caption{color:#f0e9d8}
+#progress-fill{background:#d6cfba}
+.work-page{background:linear-gradient(155deg,#262c26,#111713 65%)}
+.world-eyebrow{color:#bfb69e}
+.reading-primary{border-color:#afa48c;background:#ddd3b80a}
+@media(max-width:360px){.caption{font-size:14px;letter-spacing:.01em}}
+
+/* Episode 5: peach sunsets, soft daylight, and the same two original students. */
+.episode-five{background:#f6e9e2;color:#5b4946}
+.episode-five #welcome{background:radial-gradient(ellipse at 65% 20%,#ffe3b9,transparent 60%),linear-gradient(155deg,#f9eee7,#f2d9d5);color:#58464a}
+.episode-five .moon{width:28px;height:28px;background:#e7ac89;box-shadow:0 0 65px #ffc9a9}
+.episode-five .eyebrow,.episode-five .hint{color:#8b6d70}
+.episode-five .intro{color:#735f65}
+.episode-five .choices button{border-color:#cdaaa4;background:#fff9f655;color:#725a60;border-radius:8px}
+.episode-five .choices button:first-child{background:#775b67;border-color:#775b67;color:#fff7ee}
+.episode-five #player{background:#000;color:#fff9f2}
+.episode-five .scene::before{filter:blur(24px) brightness(.85)}
+.episode-five #scenes .scene img{object-fit:contain;object-position:center 38%;transform-origin:center center}
+.episode-five .scene.youth::after{background:linear-gradient(180deg,#33242c14,transparent 40%,transparent 56%,#35242d66)}
+.episode-five .caption{bottom:19%;font-size:clamp(16px,4.35vw,22px);line-height:1.9;text-shadow:0 2px 14px #39212a,0 1px 5px #39212a;letter-spacing:.04em}
+.episode-five .inner .caption{left:20px;right:20px;padding:14px 10px;border-radius:12px;color:#5b454e;background:#fff9f0e8;text-shadow:none;font:600 clamp(15px,4.2vw,20px)/1.8 "Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;box-shadow:0 5px 22px #4b263518}
+.episode-five .caption:empty{display:none}
+.episode-five .brand{color:#fff8ec;opacity:.7;text-shadow:0 1px 5px #473034}
+.episode-five #progress-fill{background:#f6c9bd}
+.episode-five #introduction{background:#000;color:#f9e5e0}
+.episode-five #intro-work h2{font-size:clamp(21px,5.8vw,32px);letter-spacing:.03em}
+.episode-five #work-cta{color:#f9d3c8}
+.episode-five .message-draft{position:absolute;left:7%;right:7%;bottom:19%;z-index:1;border-radius:16px;padding:18px 20px;background:#fffaf2f2;box-shadow:0 8px 35px #4b263533;color:#655365}
+.draft-recipient{font-size:11px;letter-spacing:.07em;color:#927b86}
+.draft-input{border-bottom:1px solid #e8d1cf;font-size:clamp(14px,3.9vw,19px);min-height:40px;padding:8px 0;margin:8px 0;white-space:pre-wrap}
+.draft-input::after{content:"│";color:#b98a91}
+.draft-status{font-size:11px;color:#aa858d}
+.episode-five.work-page{background:radial-gradient(ellipse at 80% 0%,#ffe4c8,transparent 65%),#f7eae5;color:#614d54}
+.episode-five .world-brand,.episode-five .work-question{color:#80646d}
+.episode-five .world-eyebrow{color:#aa7b82}
+.episode-five .reading-primary{border-color:#b88b92;background:#fff8f4;color:#755560;border-radius:8px}
+.episode-five .reading-secondary button,.episode-five .another-world button{color:#826570}
+.episode-five .reading-paths button[aria-pressed="true"]{color:#724854;background:#edd1d5}
+.episode-five .another-world{border-color:#b68d932b}
+.episode-five .path-response,.episode-five .work-note{color:#92787d}
+.episode-five button:focus-visible,.episode-five a:focus-visible{outline:2px solid #bd8594;outline-offset:4px}
+@media(max-height:660px){.episode-five .caption,.episode-five .message-draft{bottom:22%}.episode-five .message-draft{padding:12px 16px}}
+
+/* Episode 5 revision: a friend group watches two needless mind games. */
+.episode-five .mindgames .caption{bottom:17%;left:16px;right:16px;line-height:1.65;z-index:2;white-space:normal;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;font-size:clamp(14px,3.9vw,19px);letter-spacing:.01em}
+.mindgames .caption:empty{display:none}
+.mindgames .beat-tag{display:table;margin:0 auto 9px;padding:5px 12px;border-radius:4px;background:#fff6e8f2;color:#624958;font-size:clamp(12px,3.3vw,16px);font-weight:700;text-shadow:none;box-shadow:0 3px 15px #40203b18}
+.mindgames .speaker-name{display:block;font-size:11px;margin-bottom:5px;color:#fff2dc;font-weight:600;text-shadow:0 1px 4px #44243d}
+.mindgames .spoken-line{margin:0;white-space:pre-line;font-weight:600;line-height:1.75;text-shadow:0 2px 10px #39212a,0 1px 4px #39212a}
+.mindgames .thought-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;text-align:left;color:#514758;text-shadow:none}
+.mindgames .thought-box:only-child{grid-column:1/-1;max-width:310px;width:100%;justify-self:center}
+.mindgames .thought-box{background:#f4f9fff5;border:1px solid #9baacb;border-radius:10px;padding:10px 11px;box-shadow:0 5px 20px #2e204224;font-weight:700;font-size:clamp(12px,3.25vw,17px);line-height:1.65;white-space:pre-line}
+.mindgames .thought-box.girl{background:#fff3f0f5;border-color:#d49eab;color:#734e60}
+.mindgames .thought-label{display:block;font-size:10px;font-weight:500;color:#7b7b99;margin-bottom:5px;letter-spacing:.04em}
+.mindgames .girl .thought-label{color:#a7788a}
+.mindgames .thought-box p{margin:0;text-wrap:wrap}
+.mindgames .caption[data-kind="narration"] .spoken-line{font-size:clamp(19px,5.1vw,26px);font-weight:700}
+.mindgames .caption[data-kind="friends"]{padding:14px 10px;border-radius:9px;background:#fff9e9f2;color:#654653;text-shadow:none;box-shadow:0 6px 24px #41243922}
+.mindgames .caption[data-kind="friends"] .spoken-line{font-size:clamp(14px,3.8vw,20px);color:#654653;text-shadow:none}
+.mindgames .caption[data-kind="friends"] .speaker-name{color:#9b7483;text-shadow:none}
+.mindgames .caption[data-kind="friends"] .beat-tag{background:transparent;padding:0;box-shadow:none;font-size:11px;color:#a3838c;font-weight:500}
+.mindgames.trap-active::after{background:linear-gradient(180deg,#40366816,transparent 38%,#46294366)}
+.mindgames .caption[data-kind="trap"] .thought-box{border:2px solid #957caf;background:#f3eafaf5}
+.mindgames .caption[data-kind="trap"] .thought-box.girl{border-color:#c5809f;background:#fff0f6f5}
+.mindgames .caption[data-kind="trap"] .beat-tag{background:#694c77;color:#fff4ee;letter-spacing:.12em}
+.episode-five #scenes img.reaction-frame,.episode-five #scenes img.twist-frame{position:absolute;inset:0;width:100%;height:100%;transform:none!important;pointer-events:none}
+.episode-five #intro-third{max-width:360px;text-wrap:balance}
+@media(max-height:660px){.episode-five .mindgames .caption{bottom:19%;font-size:14px}.mindgames .thought-box{padding:8px;font-size:12px}.mindgames .beat-tag{margin-bottom:7px}}
+@media(max-width:360px){.episode-five .mindgames .caption{left:12px;right:12px}.mindgames .thought-grid{gap:7px}.mindgames .spoken-line{font-size:13px}.mindgames .thought-label{font-size:9px}}
+
+/* Return to the site's world selection, outside slideshow playback. */
+#welcome{position:relative}
+.world-picker{position:absolute;top:calc(16px + env(safe-area-inset-top));left:max(16px,env(safe-area-inset-left));padding:12px 4px;min-height:44px;color:inherit;opacity:.65;text-decoration:none;font-size:11px;line-height:20px;letter-spacing:.04em}
+.world-picker:hover,.world-picker:focus-visible{opacity:1}
+.another-world .next-world{display:inline-flex;flex-direction:column;align-items:center;gap:8px;min-height:48px;padding:14px 4px;color:inherit;opacity:.8;text-decoration:none;font:17px/1.8 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.08em}
+.next-world .next-world-label{font-size:11px;letter-spacing:.06em}
+.another-world .next-world:hover,.another-world .next-world:focus-visible{opacity:1}
