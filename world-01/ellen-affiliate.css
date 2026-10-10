@@ -1,0 +1,28 @@
+/* Only the work introduction loads these overrides for the official material. */
+.ellen-affiliate{margin:48px auto 0;text-align:center}
+.affiliate-label{margin:0 0 12px;font-size:10px;letter-spacing:.08em;color:#a19f99}
+.ellen-affiliate h2{margin:0 0 24px;font:400 clamp(15px,4vw,19px)/2 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.04em}
+.reading-options{display:grid;gap:32px}
+.reading-option{min-width:0;text-align:left}
+.reading-option h3{margin:0;font:400 17px/1.8 "Hiragino Mincho ProN","Yu Mincho",serif;letter-spacing:.04em}
+.option-number{margin-right:8px;color:#b8aa8e;font:11px/1.8 sans-serif;letter-spacing:.12em}
+.option-description{margin:6px 0 16px;color:#a19f99;font-size:11px;line-height:1.9}
+.reading-option+.reading-option{padding-top:28px;border-top:1px solid #ffffff12}
+.rakuten-material{color-scheme:light;color:#333;max-width:100%;text-align:left}
+.rakuten-material>table{width:100%;table-layout:fixed}
+.rakuten-material>table>tbody>tr>td>div{width:100%!important}
+.rakuten-material>table>tbody>tr>td>div>table{width:100%;table-layout:fixed}
+.rakuten-material td{min-width:0}
+.rakuten-material a{color:#695437;text-decoration:underline;text-underline-offset:3px}
+.rakuten-material img{max-width:100%;height:auto}
+.rakuten-material td+td{width:auto!important;display:table-cell!important}
+.rakuten-material td+td>div{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.rakuten-material td+td>div>a:last-child{flex:1;min-width:120px;text-decoration:none}
+.rakuten-material td+td>div>a:last-child>div{float:none!important;width:100%!important;min-height:44px;height:auto!important;line-height:20px!important;padding:12px!important}
+.affiliate-note{margin:14px 0 0;color:#a19f99;font-size:10px;line-height:1.9}
+@media(max-width:540px){
+  .rakuten-material>table>tbody>tr>td>div>table,.rakuten-material>table>tbody>tr>td>div>table>tbody{display:block;width:100%}
+  .rakuten-material>table>tbody>tr>td>div>table>tbody>tr{display:flex;flex-direction:column;align-items:center}
+  .rakuten-material td+td{display:block!important;width:100%!important;padding:10px 4px 8px}
+  .rakuten-material td:first-child{max-width:100%}
+}
